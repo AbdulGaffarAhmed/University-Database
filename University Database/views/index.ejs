@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University DataBase</title>
+    <link  rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+        <div class="navahai">
+        <h2>University Data</h2>
+        </div>
+   
+    <div class="add">
+        <form action="/Add">
+            <button class="addb1" type="submit">Add New Student</button>
+        </form>
+        <div class="api">
+            <a href="http://localhost:2000/API" target="_blank">
+        <button class="check" type="submit">Check API</button></a></div>
+    </div>
+    <div class="container text-center">
+        <table class="table" style="margin-top: 20px;">
+            <thead class="table-dark border-primary">
+                <tr>
+                    <th>StudentID</th>
+                    <th>Student Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Gender</th>
+                    <th>Department</th>
+                    <th>Batch</th>
+                    <th>Controls</th>
+                </tr>
+            </thead>
+           <tbody>
+            <% students.forEach((student)=>{%>
+                <tr>
+                    <td><%- student.studentID %></td>
+                    <td><%- student.studentname %></td>
+                    <td><%- student.email %></td>
+                    <td><%- student.phonenumber %></td>
+                    <td><%- student.gender %></td>
+                    <td><%- student.dept %></td>
+                    <td><%- student.batch %></td>
+                    
+                
+                <td><div class="colorss">
+                    <a href="/update/<%= student.studentID %>" target="_blank">
+                      Update</a>
+                        <a href="/delete/<%= student.studentID %>" target="_blank">
+                        <span class="dlt"> Delete</span></a></div></td></tr>
+            <% }) %>
+           </tbody>
+           
+        </table> 
+    </div>  
+</body>
+</html>
